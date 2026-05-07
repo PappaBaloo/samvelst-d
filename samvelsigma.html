@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>GSG Group AB - Städfirma</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet" >
+<link rel="stylesheet" href="css/styles.css">
+<script src="js/main.js" defer></script>
+</head>
+<body>
+<!-- NAV -->
+<nav>
+  <a class="logo" href="samvelsigma.html"> 
+    GSG GROUP AB
+  </a>
+  <ul class="nav-links">
+    <li class="services-menu">
+      <a href="#services" class="has-arrow">Tjänster</a>
+      <div class="mega-menu" aria-label="Tjänster meny">
+        <div class="mega-copy"><h2>Våra Tjänster</h2><p>Vi erbjuder flera olika städtjänster för privatpersoner och företag!</p><a href="contact.html" class="btn-book">Boka städning</a></div>
+        <div class="mega-services">
+          <a href="#hemstadning" class="mega-service-card"><img src="https://images.unsplash.com/photo-1581578731548-c64695cc6952?w=600&q=80" alt="Hemstädning"><div><h3>Hemstädning</h3><p>Regelbunden städning som gör vardagen enklare.</p></div></a>
+          <a href="#flyttstadning" class="mega-service-card"><img src="https://images.unsplash.com/photo-1584622650111-993a426fbf0a?w=600&q=80" alt="Flyttstädning"><div><h3>Flyttstädning</h3><p>Smidig hjälp när du lämnar eller flyttar in i en bostad.</p></div></a>
+          <a href="#storstadning" class="mega-service-card"><img src="https://images.unsplash.com/photo-1563453392212-326f5e854473?w=600&q=80" alt="Storstädning"><div><h3>Storstädning</h3><p>En grundlig städning från golv till tak.</p></div></a>
+          <a href="#foretagsstadning" class="mega-service-card"><img src="https://images.unsplash.com/photo-1497366216548-37526070297c?w=600&q=80" alt="Företagsstädning"><div><h3>Företagsstädning</h3><p>Renare kontor, lokaler och gemensamma ytor.</p></div></a>
+        </div>
+      </div>
+    </li>
+    <li><a href="about.html">Om oss</a></li>
+    <li><a href="#prices">Priser</a></li>
+    <li><a href="#faq">FAQ</a></li>
+    <li><a href="contact.html">Kontakt</a></li>
+    <li><a href="jobs.html">Jobba hos oss</a></li>
+  </ul>
+
+  <div class="nav-right">
+    <a href="booking.html" class="btn-book">Boka städning</a>
+    <a href="tel:070 88 444 89" class="nav-icon-link">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6 19.8 19.8 0 0 1-3.1-8.7A2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 2 .7 2.9a2 2 0 0 1-.5 2.1L8.1 9.9a16 16 0 0 0 6 6l1.2-1.2a2 2 0 0 1 2.1-.5c.9.3 1.9.6 2.9.7A2 2 0 0 1 22 16.9z"/></svg>
+      Ring oss
+    </a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-bg"></div>
+
+  <div class="hero-content">
+    <h1 class="hero-headline">
+      Vi hjälper dig med<br>
+      <span class="rotating-word" id="rotatingWord">hemstädning</span>
+    </h1>
+    <p class="hero-sub">Erfaren och familjär städfirma för dig i<br>Stockholm, Uppsala &amp; Nyköping!</p>
+
+    <div class="hero-form">
+      <input type="number" id="heroYta" placeholder="Hur många m²" min="1" />
+      <div class="divider"></div>
+      <input type="text" id="heroPostnummer" placeholder="Postnummer" />
+      <button id="heroBoka">Välj tjänst &amp; boka</button>
+    </div>
+    <p class="hero-company-note">Har du ett företag/kontor? <a href="#">Kontakta oss</a> för offert</p>
+  </div>
+
+  <a href="#" class="offer-bubble">
+    <span class="label">Erbjudande:</span>
+    <p class="price-line">Provstädning<br><strong>250 kr/h</strong></p>
+    <div class="stars">★★★★★</div>
+    <div class="rating">5.0</div>
+    <div class="reviews">från 50120 kundomdömen på reco.se</div>
+  </a>
+</section>
+
+<!-- INTRO -->
+<section class="intro">
+  <div>
+    <h2>Vår städfirma hjälper dig i Stockholm till en enklare vardag!</h2>
+    <p>
+      Efter en lång dag på jobbet känns det härligt att öppna dörren och kliva in i doften av ett nystädat hem. Allt fler tar hjälp med hemstädning av GSG GROUP AB för att få vardagen att gå ihop och göra annat på sin lediga tid.
+      <br><br>
+      Med fokus på kvalité, bra villkor och långsiktiga kundrelationer vill vi vara det givna valet när du är i behov av städfirma i Stockholm med omnejd.
+    </p>
+  </div>
+  <div class="intro-img">
+    <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=900&q=80" alt="Städat hem" />
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section class="services" id="services">
+  <div class="section-header">
+    <h2>Vi erbjuder flera städtjänster</h2>
+    <p>För privatpersoner, företag och bostadsrättsföreningar i Stockholm, Uppsala och Nyköping.</p>
+  </div>
+
+  <div class="service-grid">
+    <a href="booking.html" class="service-card" id="hemstadning">
+      <img src="https://images.unsplash.com/photo-1581578731548-c64695cc6952?w=700&q=80" alt="Hemstädning">
+      <div class="card-body">
+        <h3>Hemstädning</h3>
+        <p>En städerska kommer och städar ditt hem varje eller varannan vecka.</p>
+        <span class="read-more">Boka hemstädning</span>
+      </div>
+    </a>
+    <a href="booking.html" class="service-card" id="storstadning">
+      <img src="https://images.unsplash.com/photo-1563453392212-326f5e854473?w=700&q=80" alt="Storstädning">
+      <div class="card-body">
+        <h3>Storstädning</h3>
+        <p>Varje yta i hemmet städas från golv till tak – perfekt inför flytt eller säsong.</p>
+        <span class="read-more">Boka storstädning</span>
+      </div>
+    </a>
+    <a href="booking.html" class="service-card" id="flyttstadning">
+      <img src="https://images.unsplash.com/photo-1584622650111-993a426fbf0a?w=700&q=80" alt="Flyttstädning">
+      <div class="card-body">
+        <h3>Flyttstädning</h3>
+        <p>Vi tar hand om din städning vid flytt – så att du kan fokusera på det som är viktigt.</p>
+        <span class="read-more">Boka flyttstädning</span>
+      </div>
+    </a>
+    <a href="booking.html" class="service-card" id="foretagsstadning">
+      <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?w=700&q=80" alt="Företagsstädning">
+      <div class="card-body">
+        <h3>Företagsstädning</h3>
+        <p>Vi städar kontor, butiker och lager – anpassat efter ditt företags behov och schema.</p>
+        <span class="read-more">Boka företagsstädning</span>
+      </div>
+    </a>
+  </div>
+</section>
+
+<!-- VALUES -->
+<section class="values">
+  <div class="section-header">
+    <h2>Vad du får med GSG Group AB som städföretag</h2>
+    <p>Vi arbetar ständigt med att erbjuda hög kvalité, klimatsmarta val och bra villkor för vår personal.</p>
+  </div>
+  <div class="values-grid">
+    <div class="value-item">
+      <div class="value-icon">
+        <svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+      </div>
+      <h3>Kvalité</h3>
+      <p>Vi arbetar ständigt med att erbjuda hög kvalité genom snabb kundservice, utbildad personal och engagerade kvalitetschefer ute på fältet.</p>
+    </div>
+    <div class="value-item">
+      <div class="value-icon">
+        <svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+      </div>
+      <h3>En lång erfarenhet</h3>
+      <p>Vi har arbetat med städtjänster i mer än 10 år och har byggt upp ett starkt rykte inom branschen.</p>
+    </div>
+    <div class="value-item">
+      <div class="value-icon">
+        <svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+      </div>
+      <h3>Bra villkor för vår personal</h3>
+      <p>Vi erbjuder fast anställning, konkurrenskraftiga löner, tjänstepensioner och försäkringar – engagerade medarbetare ger nöjda kunder.</p>
+    </div>
+  </div>
+</section>
+
+<div id="prices"></div>
+<!-- FAQ -->
+<section class="faq" id="faq">
+  <div class="faq-left">
+    <h2>Det ska vara enkelt att vara kund hos GSG GROUP AB</h2>
+    <p>Här är svar på de vanligaste frågorna vi får. Hittar du inte svar på din fråga? Kontakta oss gärna!</p>
+    <a href="#" class="btn-faq">Alla vanliga frågor</a>
+  </div>
+  <div class="faq-list">
+    <div class="faq-item">
+      <div class="faq-q">
+        Vad gäller vid avbokning av en städning?
+        <span class="faq-toggle">+</span>
+      </div>
+      <div class="faq-a">Om du önskar avboka eller ändra din inbokade städning ber vi dig att vara ute i god tid – senast 24 timmar innan städningen. Avbokning sker Mejl eller telefon. Vid av- och ombokning mindre än 24 timmar innan debiterar vi för hela städningen.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q">
+        Har ni någon uppsägnings- eller bindningstid?
+        <span class="faq-toggle">+</span>
+      </div>
+      <div class="faq-a">Nej, för privatpersoner har vi ingen uppsägnings- eller bindningstid mer än att avbokning måste ske minst 24 timmar innan städtillfället. För företag gäller avtalad uppsägningstid.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q">
+        Hur fungerar RUT-avdraget?
+        <span class="faq-toggle">+</span>
+      </div>
+      <div class="faq-a">Vi hanterar RUT-avdraget åt dig direkt på fakturan. Du betalar bara 50% av arbetskostnaden, resten fakturerar vi Skatteverket. Enklare blir det inte!</div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-section">
+  <div class="cta-text">
+    <h2>Söker du jobb? Var med och hjälp våra kunder!</h2>
+    <p>Vi är övertygade om att anställda som blir uppmärksammade och har bra villkor gör ett bättre jobb, vilket leder till nöjda och långsiktiga kunder.</p>
+  </div>
+  <div class="cta-actions">
+    <a href="#" class="btn-white">Kontakta oss</a>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <div class="logo" style="color:white; margin-bottom:16px;">
+        <span>GSG GROUP AB</span>
+      </div>
+      <p>Erfaren och familjär städfirma i Stockholm.</p>
+    </div>
+    <div class="footer-col">
+      <h4>Tjänster</h4>
+      <ul>
+        <li><a href="#">Hemstädning</a></li>
+        <li><a href="#">Storstädning</a></li>
+        <li><a href="#">Flyttstädning</a></li>
+        <li><a href="#">Företagsstädning</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Företaget</h4>
+      <ul>
+        <li><a href="#">Om oss</a></li>
+        <li><a href="#">Priser</a></li>
+        <li><a href="#">FAQ</a></li>
+        <li><a href="#">Jobba hos oss</a></li>
+        <li><a href="#">Kontakt</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Kontakt</h4>
+      <ul>
+        <li><a href="tel:070 88 444 89">070 88 444 89</a></li>
+        <li><a href="mailto:info@gsggroup.se">info@gsggroup.se</a></li>
+        <li><a href="#">Krogtäppan 21, 137 68</a></li>
+        <li><a href="#">Boka städning</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>© 2024 GSG GROUP AB. Alla rättigheter förbehållna.</p>
+    <p>Integritetspolicy &nbsp;·&nbsp; Cookies</p>
+  </div>
+</footer>
+
+
+<script>
+  document.getElementById('heroBoka').addEventListener('click', function() {
+    const yta = document.getElementById('heroYta').value.trim();
+    const postnummer = document.getElementById('heroPostnummer').value.trim();
+    const params = new URLSearchParams();
+    if (yta) params.set('yta', yta);
+    if (postnummer) params.set('postnummer', postnummer);
+    window.location.href = 'booking.html?' + params.toString();
+  });
+</script>
+</body>
+</html>
