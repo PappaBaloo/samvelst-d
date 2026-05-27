@@ -117,14 +117,30 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   // ── Mobile Nav Toggle ──
-  const navToggle = document.getElementById('navToggle');
-  const navMobile = document.getElementById('navMobile');
+  const navToggle  = document.getElementById('navToggle');
+  const navMobile  = document.getElementById('navMobile');
+  const navOverlay = document.getElementById('navOverlay');
+  const navClose   = document.getElementById('navClose');
+
+  function openMobileNav() {
+    navMobile.classList.add('open');
+    if (navOverlay) navOverlay.classList.add('open');
+    document.body.style.overflow = 'hidden';
+    navToggle.setAttribute('aria-expanded', 'true');
+  }
+  function closeMobileNav() {
+    navMobile.classList.remove('open');
+    if (navOverlay) navOverlay.classList.remove('open');
+    document.body.style.overflow = '';
+    navToggle.setAttribute('aria-expanded', 'false');
+  }
+
   if (navToggle && navMobile) {
-    navToggle.addEventListener('click', () => {
-      const isOpen = navMobile.classList.toggle('open');
-      navToggle.setAttribute('aria-expanded', String(isOpen));
-    });
-    navMobile.querySelectorAll('a').forEach(link => link.addEventListener('click', () => navMobile.classList.remove('open')));
+    navToggle.addEventListener('click', openMobileNav);
+    if (navClose)   navClose.addEventListener('click', closeMobileNav);
+    if (navOverlay) navOverlay.addEventListener('click', closeMobileNav);
+    navMobile.querySelectorAll('a').forEach(link => link.addEventListener('click', closeMobileNav));
+    document.addEventListener('keydown', e => { if (e.key === 'Escape') closeMobileNav(); });
   }
 
   // ── Storstädning: fönsterputs toggle ──
