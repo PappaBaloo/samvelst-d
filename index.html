@@ -248,17 +248,5 @@
     <p>Integritetspolicy &nbsp;·&nbsp; Cookies</p>
   </div>
 </footer>
-
-
-<script>
-  document.getElementById('heroBoka').addEventListener('click', function() {
-    const yta = document.getElementById('heroYta').value.trim();
-    const postnummer = document.getElementById('heroPostnummer').value.trim();
-    const params = new URLSearchParams();
-    if (yta) params.set('yta', yta);
-    if (postnummer) params.set('postnummer', postnummer);
-    window.location.href = 'booking.html?' + params.toString();
-  });
-</script>
 </body>
 </html>
