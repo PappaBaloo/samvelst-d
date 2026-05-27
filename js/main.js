@@ -14,7 +14,7 @@
 const EMAILJS_PUBLIC_KEY  = 'bbzXw4kHPZ8xL7pGA';   // Account → API Keys
 const EMAILJS_SERVICE_ID  = 'service_nscozbg';   // Email Services → Service ID
 const EMAILJS_TEMPLATE_ID = 'template_qahsc45';  // Email Templates → Template ID
-const BOOKING_RECIPIENT   = 'info@gsggroup.se';
+const BOOKING_RECIPIENT   = 'charliesnbusiness@gmail.com'; // TODO: change to info@gsggroup.se before going live
 const COMPANY_NAME        = 'GSG GROUP AB';
 
 if (typeof emailjs !== 'undefined') emailjs.init(EMAILJS_PUBLIC_KEY);
@@ -541,7 +541,6 @@ document.addEventListener('DOMContentLoaded', () => {
         }
 
         await emailjs.send(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, {
-          to_email: BOOKING_RECIPIENT,
           reply_to: replyTo,
           subject,
           body,
