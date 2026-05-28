@@ -780,6 +780,10 @@
     letter-spacing: 0.04em; text-transform: uppercase; margin-bottom: 16px; display: block;
   }
 
+  @media (max-width: 1024px) {
+    .offer-bubble { display: none; }
+  }
+
   @media (max-width: 640px) {
     /* ── NAV ── */
     nav { padding: 0 20px; }
