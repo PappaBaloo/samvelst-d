@@ -27,12 +27,13 @@
           <a href="booking.html?tjanst=flyttstadning" class="mega-service-card"><img src="https://images.unsplash.com/photo-1584622650111-993a426fbf0a?w=600&q=80" alt="Flyttstädning"><div><h3>Flyttstädning</h3><p>Smidig hjälp när du lämnar eller flyttar in i en bostad.</p></div></a>
           <a href="booking.html?tjanst=storstadning" class="mega-service-card"><img src="https://images.unsplash.com/photo-1563453392212-326f5e854473?w=600&q=80" alt="Storstädning"><div><h3>Storstädning</h3><p>En grundlig städning från golv till tak.</p></div></a>
           <a href="booking.html?tjanst=foretagsstadning" class="mega-service-card"><img src="https://images.unsplash.com/photo-1497366216548-37526070297c?w=600&q=80" alt="Företagsstädning"><div><h3>Företagsstädning</h3><p>Renare kontor, lokaler och gemensamma ytor.</p></div></a>
+          <a href="booking.html?tjanst=dodsbostadning" class="mega-service-card"><img src="https://images.unsplash.com/photo-1560518883-ce09059eeffa?w=600&q=80" alt="Dödsbo städning"><div><h3>Dödsbo städning</h3><p>Respektfull tömning och städning av dödsbo.</p></div></a>
         </div>
       </div>
     </li>
     <li><a href="about.html">Om oss</a></li>
-    <li><a href="index.html#prices">Priser</a></li>
-    <li><a href="index.html#faq">FAQ</a></li>
+    <li><a href="pricing.html">Priser</a></li>
+    <li><a href="faq.html">FAQ</a></li>
     <li><a href="contact.html">Kontakt</a></li>
     <li><a href="jobs.html">Jobba hos oss</a></li>
   </ul>
@@ -56,10 +57,23 @@
   </div>
   <ul class="nav-mobile-links">
     <li><a href="index.html">Hem</a></li>
-    <li><a href="index.html#services">Tjänster</a></li>
+    <li class="nav-mobile-services">
+      <button class="nav-mobile-services-toggle">
+        Tjänster
+        <svg class="services-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
+      </button>
+      <ul class="nav-mobile-services-list">
+        <li><a href="booking.html?tjanst=hemstadning">Återkommande hemstädning</a></li>
+        <li><a href="booking.html?tjanst=enstaka">Enstaka hemstädning</a></li>
+        <li><a href="booking.html?tjanst=storstadning">Storstädning</a></li>
+        <li><a href="booking.html?tjanst=flyttstadning">Flyttstädning</a></li>
+        <li><a href="booking.html?tjanst=foretagsstadning">Företagsstädning</a></li>
+        <li><a href="booking.html?tjanst=dodsbostadning">Dödsbo städning/tömning</a></li>
+      </ul>
+    </li>
     <li><a href="about.html">Om oss</a></li>
-    <li><a href="index.html#prices">Priser</a></li>
-    <li><a href="index.html#faq">FAQ</a></li>
+    <li><a href="pricing.html">Priser</a></li>
+    <li><a href="faq.html">FAQ</a></li>
     <li><a href="contact.html">Kontakt</a></li>
     <li><a href="jobs.html">Jobba hos oss</a></li>
   </ul>
@@ -85,6 +99,11 @@
 <!-- BOOKING FORM -->
 <div class="booking-wrap">
 
+  <!-- Guarantee banner -->
+  <div class="info-note">
+    <strong>14-dagars reklamationsrätt</strong> — Inte nöjd med städningen? Vi återkommer inom 14 dagar och åtgärdar det kostnadsfritt. Inga frågor ställda.
+  </div>
+
   <!-- Step intro -->
   <div class="step-intro" id="stepIntro">
     <h2>Kom igång</h2>
@@ -104,6 +123,7 @@
       <button class="tab" data-tab="flyttstadning">Flyttstädning</button>
       <button class="tab" data-tab="enstaka">Enstaka hemstädning</button>
       <button class="tab" data-tab="foretagsstadning">Företagsstädning</button>
+      <button class="tab" data-tab="dodsbostadning">Dödsbo städning/tömning</button>
     </div>
   </div>
 
@@ -182,8 +202,8 @@
             <input type="email" class="text-input" name="email" placeholder="din@email.se" required>
           </div>
           <div class="field-group">
-            <label class="field-label">Telefon</label>
-            <input type="tel" class="text-input" name="telefon" placeholder="07X XXX XX XX" required>
+            <label class="field-label">Telefon <span class="field-sub">(valfritt)</span></label>
+            <input type="tel" class="text-input" name="telefon" placeholder="07X XXX XX XX">
           </div>
         </div>
         <div class="field-group" style="margin-top:14px">
@@ -302,8 +322,8 @@
             <input type="email" class="text-input" name="email" placeholder="din@email.se" required>
           </div>
           <div class="field-group">
-            <label class="field-label">Telefon</label>
-            <input type="tel" class="text-input" name="telefon" placeholder="07X XXX XX XX" required>
+            <label class="field-label">Telefon <span class="field-sub">(valfritt)</span></label>
+            <input type="tel" class="text-input" name="telefon" placeholder="07X XXX XX XX">
           </div>
         </div>
         <div class="field-group" style="margin-top:14px">
@@ -382,8 +402,8 @@
             <input type="email" class="text-input" name="email" placeholder="din@email.se" required>
           </div>
           <div class="field-group">
-            <label class="field-label">Telefon</label>
-            <input type="tel" class="text-input" name="telefon" placeholder="07X XXX XX XX" required>
+            <label class="field-label">Telefon <span class="field-sub">(valfritt)</span></label>
+            <input type="tel" class="text-input" name="telefon" placeholder="07X XXX XX XX">
           </div>
         </div>
         <div class="field-group" style="margin-top:14px">
@@ -424,6 +444,28 @@
         </div>
 
         <div class="field-group">
+          <label class="field-label">Tillval</label>
+          <div class="checkbox-cards">
+            <label class="checkbox-card"><input type="checkbox" name="addon-balkong-flytt"> <span>Balkong / Inglasad balkong</span></label>
+            <label class="checkbox-card"><input type="checkbox" name="addon-forrad-flytt" id="addonForrad-flytt"> <span>Förråd / Garage</span></label>
+            <label class="checkbox-card"><input type="checkbox" name="addon-frost-flytt"> <span>Avfrostning av frysskåp</span></label>
+            <label class="checkbox-card"><input type="checkbox" name="addon-eldstad-flytt"> <span>Eldstädsrengöring</span></label>
+          </div>
+        </div>
+
+        <div id="forradFields-flytt" style="display:none; margin-top:14px">
+          <div class="field-group">
+            <label class="field-label">Antal vattenlås i förråd/garage</label>
+            <input type="number" class="text-input" name="vattenlas-flytt" placeholder="0" min="0" style="max-width:160px">
+          </div>
+        </div>
+
+        <div class="field-group" style="margin-top:14px">
+          <label class="field-label">Övriga önskemål <span class="field-sub">(valfritt)</span></label>
+          <textarea class="text-input" name="ovriga-flytt" placeholder="Eventuella övriga önskemål eller tillägg..."></textarea>
+        </div>
+
+        <div class="field-group">
           <label class="field-label">Övrigt</label>
           <div class="checkbox-cards">
             <label class="checkbox-card"><input type="checkbox" name="hund-flytt"> <span>🐶 Hund i hemmet</span></label>
@@ -450,8 +492,8 @@
             <input type="email" class="text-input" name="email" placeholder="din@email.se" required>
           </div>
           <div class="field-group">
-            <label class="field-label">Telefon</label>
-            <input type="tel" class="text-input" name="telefon" placeholder="07X XXX XX XX" required>
+            <label class="field-label">Telefon <span class="field-sub">(valfritt)</span></label>
+            <input type="tel" class="text-input" name="telefon" placeholder="07X XXX XX XX">
           </div>
         </div>
         <div class="field-group" style="margin-top:14px">
@@ -546,8 +588,87 @@
             <input type="email" class="text-input" name="email" placeholder="din@email.se" required>
           </div>
           <div class="field-group">
-            <label class="field-label">Telefon</label>
-            <input type="tel" class="text-input" name="telefon" placeholder="07X XXX XX XX" required>
+            <label class="field-label">Telefon <span class="field-sub">(valfritt)</span></label>
+            <input type="tel" class="text-input" name="telefon" placeholder="07X XXX XX XX">
+          </div>
+        </div>
+        <div class="field-group" style="margin-top:14px">
+          <label class="field-label">Adress</label>
+          <input type="text" class="text-input" name="adress" placeholder="Gatuadress" required>
+        </div>
+        <div class="field-group" style="margin-top:14px">
+          <label class="field-label">Övrigt meddelande <span class="field-sub">(valfritt)</span></label>
+          <textarea class="text-input" name="meddelande" placeholder="Eventuella önskemål eller information..."></textarea>
+        </div>
+
+        <hr class="field-divider">
+        <label class="terms-row">
+          <input type="checkbox" name="terms">
+          <span>Jag accepterar GSG GROUP AB:s <a href="#">allmänna villkor</a></span>
+        </label>
+        <button type="submit" class="btn-submit">Skicka städförfrågan</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- ── PANEL: Dödsbo städning/tömning ── -->
+  <div class="panel" id="panel-dodsbostadning">
+    <div class="form-card">
+      <h3>Dödsbo städning/tömning</h3>
+      <p class="service-desc">
+        Vi erbjuder en komplett och respektfull hantering av dödsbo. Tjänsten inkluderar städning och rengöring av bostaden samt eventuell tömning och bortforsling av kvarlåtenskaper.<br><br>
+        Vi anpassar alltid uppdraget efter era önskemål och förutsättningar. Kontakta oss för en kostnadsfri besiktning och offert.
+      </p>
+
+      <form class="form" id="form-dodsbostadning">
+        <div class="field-group">
+          <label class="field-label">Välj ett datumspann för utförande</label>
+          <div class="date-row">
+            <label><span>Från datum</span><input type="date" name="fran-dodsbo" required></label>
+            <label><span>Till datum</span><input type="date" name="till-dodsbo" required></label>
+          </div>
+        </div>
+
+        <div class="field-group">
+          <label class="field-label">Typ av bostad</label>
+          <div class="radio-cards">
+            <label class="radio-card"><input type="radio" name="typ-dodsbo" value="lagenhet" checked> <span class="radio-card-label">Lägenhet</span></label>
+            <label class="radio-card"><input type="radio" name="typ-dodsbo" value="villa"> <span class="radio-card-label">Villa</span></label>
+            <label class="radio-card"><input type="radio" name="typ-dodsbo" value="radhus"> <span class="radio-card-label">Radhus</span></label>
+          </div>
+        </div>
+
+        <div class="field-group">
+          <label class="field-label">Tillval</label>
+          <div class="checkbox-cards">
+            <label class="checkbox-card"><input type="checkbox" name="addon-tomning-dodsbo"> <span>Tömning / Bortforsling</span></label>
+            <label class="checkbox-card"><input type="checkbox" name="addon-sortering-dodsbo"> <span>Sortering av kvarlåtenskaper</span></label>
+            <label class="checkbox-card"><input type="checkbox" name="addon-forrad-dodsbo"> <span>Förråd / Garage</span></label>
+            <label class="checkbox-card"><input type="checkbox" name="addon-hiss-dodsbo"> <span>Hiss finns</span></label>
+          </div>
+        </div>
+
+        <hr class="field-divider">
+
+        <p class="field-label" style="margin-bottom:18px">Kontaktuppgifter</p>
+        <div class="input-row">
+          <div class="field-group">
+            <label class="field-label">Förnamn</label>
+            <input type="text" class="text-input" name="fornamn" placeholder="Ditt förnamn" required>
+          </div>
+          <div class="field-group">
+            <label class="field-label">Efternamn</label>
+            <input type="text" class="text-input" name="efternamn" placeholder="Ditt efternamn" required>
+          </div>
+        </div>
+        <div class="input-row" style="margin-top:14px">
+          <div class="field-group">
+            <label class="field-label">E-post</label>
+            <input type="email" class="text-input" name="email" placeholder="din@email.se" required>
+          </div>
+          <div class="field-group">
+            <label class="field-label">Telefon <span class="field-sub">(valfritt)</span></label>
+            <input type="tel" class="text-input" name="telefon" placeholder="07X XXX XX XX">
           </div>
         </div>
         <div class="field-group" style="margin-top:14px">
@@ -591,8 +712,8 @@
       <h4>Företaget</h4>
       <ul>
         <li><a href="about.html">Om oss</a></li>
-        <li><a href="index.html#prices">Priser</a></li>
-        <li><a href="index.html#faq">FAQ</a></li>
+        <li><a href="pricing.html">Priser</a></li>
+        <li><a href="faq.html">FAQ</a></li>
         <li><a href="jobs.html">Jobba hos oss</a></li>
         <li><a href="contact.html">Kontakt</a></li>
       </ul>

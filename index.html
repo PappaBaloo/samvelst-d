@@ -18,18 +18,19 @@
     <li class="services-menu">
       <a href="#services" class="has-arrow">Tjänster</a>
       <div class="mega-menu" aria-label="Tjänster meny">
-        <div class="mega-copy"><h2>Våra Tjänster</h2><p>Vi erbjuder flera olika städtjänster för privatpersoner och företag!</p><a href="contact.html" class="btn-book">Boka städning</a></div>
+        <div class="mega-copy"><h2>Våra Tjänster</h2><p>Vi erbjuder flera olika städtjänster för privatpersoner och företag!</p><a href="booking.html" class="btn-book">Boka städning</a></div>
         <div class="mega-services">
           <a href="#hemstadning" class="mega-service-card"><img src="https://images.unsplash.com/photo-1581578731548-c64695cc6952?w=600&q=80" alt="Hemstädning"><div><h3>Hemstädning</h3><p>Regelbunden städning som gör vardagen enklare.</p></div></a>
           <a href="#flyttstadning" class="mega-service-card"><img src="https://images.unsplash.com/photo-1584622650111-993a426fbf0a?w=600&q=80" alt="Flyttstädning"><div><h3>Flyttstädning</h3><p>Smidig hjälp när du lämnar eller flyttar in i en bostad.</p></div></a>
           <a href="#storstadning" class="mega-service-card"><img src="https://images.unsplash.com/photo-1563453392212-326f5e854473?w=600&q=80" alt="Storstädning"><div><h3>Storstädning</h3><p>En grundlig städning från golv till tak.</p></div></a>
           <a href="#foretagsstadning" class="mega-service-card"><img src="https://images.unsplash.com/photo-1497366216548-37526070297c?w=600&q=80" alt="Företagsstädning"><div><h3>Företagsstädning</h3><p>Renare kontor, lokaler och gemensamma ytor.</p></div></a>
+          <a href="#dodsbostadning" class="mega-service-card"><img src="https://images.unsplash.com/photo-1560518883-ce09059eeffa?w=600&q=80" alt="Dödsbo städning"><div><h3>Dödsbo städning</h3><p>Respektfull tömning och städning av dödsbo.</p></div></a>
         </div>
       </div>
     </li>
     <li><a href="about.html">Om oss</a></li>
-    <li><a href="#prices">Priser</a></li>
-    <li><a href="#faq">FAQ</a></li>
+    <li><a href="pricing.html">Priser</a></li>
+    <li><a href="faq.html">FAQ</a></li>
     <li><a href="contact.html">Kontakt</a></li>
     <li><a href="jobs.html">Jobba hos oss</a></li>
   </ul>
@@ -54,10 +55,23 @@
   </div>
   <ul class="nav-mobile-links">
     <li><a href="index.html">Hem</a></li>
-    <li><a href="#services">Tjänster</a></li>
+    <li class="nav-mobile-services">
+      <button class="nav-mobile-services-toggle">
+        Tjänster
+        <svg class="services-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
+      </button>
+      <ul class="nav-mobile-services-list">
+        <li><a href="booking.html?tjanst=hemstadning">Återkommande hemstädning</a></li>
+        <li><a href="booking.html?tjanst=enstaka">Enstaka hemstädning</a></li>
+        <li><a href="booking.html?tjanst=storstadning">Storstädning</a></li>
+        <li><a href="booking.html?tjanst=flyttstadning">Flyttstädning</a></li>
+        <li><a href="booking.html?tjanst=foretagsstadning">Företagsstädning</a></li>
+        <li><a href="booking.html?tjanst=dodsbostadning">Dödsbo städning/tömning</a></li>
+      </ul>
+    </li>
     <li><a href="about.html">Om oss</a></li>
-    <li><a href="#prices">Priser</a></li>
-    <li><a href="#faq">FAQ</a></li>
+    <li><a href="pricing.html">Priser</a></li>
+    <li><a href="faq.html">FAQ</a></li>
     <li><a href="contact.html">Kontakt</a></li>
     <li><a href="jobs.html">Jobba hos oss</a></li>
   </ul>
@@ -99,6 +113,14 @@
     <div class="reviews">från 50120 kundomdömen på reco.se</div>
   </a>
 </section>
+
+<!-- TRUST STRIP -->
+<div class="trust-strip">
+  <span>14-dagars reklamationsrätt</span>
+  <span>Ingen bindningstid</span>
+  <span>RUT-avdrag ingår</span>
+  <span>Alltid försäkrade städare</span>
+</div>
 
 <!-- INTRO -->
 <section class="intro">
@@ -161,6 +183,14 @@
         <h3>Företagsstädning</h3>
         <p>Vi städar kontor, butiker och lager – anpassat efter ditt företags behov och schema.</p>
         <span class="read-more">Boka företagsstädning</span>
+      </div>
+    </a>
+    <a href="booking.html?tjanst=dodsbostadning" class="service-card" id="dodsbostadning">
+      <img src="https://images.unsplash.com/photo-1560518883-ce09059eeffa?w=700&q=80" alt="Dödsbo städning">
+      <div class="card-body">
+        <h3>Dödsbo städning/tömning</h3>
+        <p>Respektfull och professionell tömning och städning av dödsbo – vi tar hand om allt.</p>
+        <span class="read-more">Boka dödsbo städning</span>
       </div>
     </a>
   </div>
@@ -275,7 +305,7 @@
         <li><a href="tel:070 88 444 89">070 88 444 89</a></li>
         <li><a href="mailto:info@gsggroup.se">info@gsggroup.se</a></li>
         <li><a href="#">Krogtäppan 21, 137 68</a></li>
-        <li><a href="#">Boka städning</a></li>
+        <li><a href="booking.html">Boka städning</a></li>
       </ul>
     </div>
   </div>

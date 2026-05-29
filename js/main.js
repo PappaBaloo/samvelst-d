@@ -44,7 +44,7 @@ const _SEP = '──────────────────────
 
 function buildHemstadningEmail(form) {
   const fn  = _fd(form, 'fornamn'),  ln  = _fd(form, 'efternamn');
-  const tel = _fd(form, 'telefon'),  adr = _fd(form, 'adress');
+  const tel = _fd(form, 'telefon') || '—',  adr = _fd(form, 'adress');
   const msg = _fd(form, 'meddelande') || '—';
 
   const freqMap = { varje: 'Varje vecka', varannan: 'Varannan vecka', var4: 'Var fjärde vecka' };
@@ -94,7 +94,7 @@ ${tel}`,
 
 function buildStorstadningEmail(form) {
   const fn  = _fd(form, 'fornamn'),  ln  = _fd(form, 'efternamn');
-  const tel = _fd(form, 'telefon'),  adr = _fd(form, 'adress');
+  const tel = _fd(form, 'telefon') || '—',  adr = _fd(form, 'adress');
   const msg = _fd(form, 'meddelande') || '—';
   const fran = _fd(form, 'fran-stor') || '—';
   const till = _fd(form, 'till-stor') || '—';
@@ -140,11 +140,20 @@ ${tel}`,
 
 function buildFlyttstadningEmail(form) {
   const fn  = _fd(form, 'fornamn'),  ln  = _fd(form, 'efternamn');
-  const tel = _fd(form, 'telefon'),  adr = _fd(form, 'adress');
+  const tel = _fd(form, 'telefon') || '—',  adr = _fd(form, 'adress');
   const msg = _fd(form, 'meddelande') || '—';
   const fran = _fd(form, 'fran-flytt') || '—';
   const till = _fd(form, 'till-flytt') || '—';
   const pets = _pets(form, 'hund-flytt', 'katt-flytt');
+
+  const balkong  = _yn(form.querySelector('input[name="addon-balkong-flytt"]')?.checked);
+  const forrad   = _yn(form.querySelector('input[name="addon-forrad-flytt"]')?.checked);
+  const vattenlas = form.querySelector('input[name="addon-forrad-flytt"]')?.checked
+    ? (_fd(form, 'vattenlas-flytt') || '0')
+    : '—';
+  const frost    = _yn(form.querySelector('input[name="addon-frost-flytt"]')?.checked);
+  const eldstad  = _yn(form.querySelector('input[name="addon-eldstad-flytt"]')?.checked);
+  const ovriga   = _fd(form, 'ovriga-flytt') || '—';
 
   return {
     subject: 'Bokningsförfrågan — Flyttstädning',
@@ -167,7 +176,15 @@ Yta att städa:      ${_yta()}
 Ingår alltid:       Ugnsrengöring, kylskåpsrengöring & fönsterputs
 
 ── TILLVAL ───────────────────────────────────
+Balkong:            ${balkong}
+Förråd/Garage:      ${forrad}
+Antal vattenlås:    ${vattenlas}
+Avfrostning frysskåp: ${frost}
+Eldstädsrengöring:  ${eldstad}
 Husdjur hemma:      ${pets}
+
+── ÖVRIGA ÖNSKEMÅL ───────────────────────────
+${ovriga}
 
 ── MEDDELANDE ────────────────────────────────
 ${msg}
@@ -181,7 +198,7 @@ ${tel}`,
 
 function buildEnastakaEmail(form) {
   const fn  = _fd(form, 'fornamn'),  ln  = _fd(form, 'efternamn');
-  const tel = _fd(form, 'telefon'),  adr = _fd(form, 'adress');
+  const tel = _fd(form, 'telefon') || '—',  adr = _fd(form, 'adress');
   const msg = _fd(form, 'meddelande') || '—';
   const fran = _fd(form, 'fran-enstaka') || '—';
   const till = _fd(form, 'till-enstaka') || '—';
@@ -227,7 +244,7 @@ ${tel}`,
 
 function buildForetagsstadningEmail(form) {
   const fn  = _fd(form, 'fornamn'),  ln  = _fd(form, 'efternamn');
-  const tel = _fd(form, 'telefon'),  adr = _fd(form, 'adress');
+  const tel = _fd(form, 'telefon') || '—',  adr = _fd(form, 'adress');
   const msg = _fd(form, 'meddelande') || '—';
   const fran = _fd(form, 'fran-fon') || '—';
   const till = _fd(form, 'till-fon') || '—';
@@ -268,12 +285,63 @@ ${tel}`,
   };
 }
 
+function buildDodsbostadningEmail(form) {
+  const fn  = _fd(form, 'fornamn'),  ln  = _fd(form, 'efternamn');
+  const tel = _fd(form, 'telefon') || '—',  adr = _fd(form, 'adress');
+  const msg = _fd(form, 'meddelande') || '—';
+  const fran = _fd(form, 'fran-dodsbo') || '—';
+  const till = _fd(form, 'till-dodsbo') || '—';
+
+  const typMap = { lagenhet: 'Lägenhet', villa: 'Villa', radhus: 'Radhus' };
+  const typ    = typMap[_fd(form, 'typ-dodsbo')] || '—';
+
+  const tomning   = _yn(form.querySelector('input[name="addon-tomning-dodsbo"]')?.checked);
+  const sortering = _yn(form.querySelector('input[name="addon-sortering-dodsbo"]')?.checked);
+  const forrad    = _yn(form.querySelector('input[name="addon-forrad-dodsbo"]')?.checked);
+  const hiss      = _yn(form.querySelector('input[name="addon-hiss-dodsbo"]')?.checked);
+
+  return {
+    subject: 'Bokningsförfrågan — Dödsbo städning/tömning',
+    replyTo: _fd(form, 'email'),
+    body:
+`Hej ${COMPANY_NAME},
+
+Jag skickar detta via ert bokningsformulär och är intresserad av dödsbo städning/tömning.
+
+── KONTAKTUPPGIFTER ──────────────────────────
+Namn:               ${fn} ${ln}
+Telefon:            ${tel}
+Adress:             ${adr}, ${_post()}
+
+── UPPDRAGSDETALJER ──────────────────────────
+Tjänst:             Dödsbo städning/tömning
+Yta att städa:      ${_yta()}
+Typ av bostad:      ${typ}
+Önskat intervall:   ${fran} till ${till}
+
+── TILLVAL ───────────────────────────────────
+Tömning/Bortforsling: ${tomning}
+Sortering:          ${sortering}
+Förråd/Garage:      ${forrad}
+Hiss finns:         ${hiss}
+
+── MEDDELANDE ────────────────────────────────
+${msg}
+
+${_SEP}
+Med vänliga hälsningar,
+${fn} ${ln}
+${tel}`,
+  };
+}
+
 const EMAIL_BUILDERS = {
-  'form-hemstadning':      buildHemstadningEmail,
-  'form-storstadning':     buildStorstadningEmail,
-  'form-flyttstadning':    buildFlyttstadningEmail,
-  'form-enstaka':          buildEnastakaEmail,
-  'form-foretagsstadning': buildForetagsstadningEmail,
+  'form-hemstadning':       buildHemstadningEmail,
+  'form-storstadning':      buildStorstadningEmail,
+  'form-flyttstadning':     buildFlyttstadningEmail,
+  'form-enstaka':           buildEnastakaEmail,
+  'form-foretagsstadning':  buildForetagsstadningEmail,
+  'form-dodsbostadning':    buildDodsbostadningEmail,
 };
 
 
@@ -426,6 +494,7 @@ document.addEventListener('DOMContentLoaded', () => {
     if (navOverlay) navOverlay.classList.remove('open');
     document.body.style.overflow = '';
     navToggle.setAttribute('aria-expanded', 'false');
+    document.querySelector('.nav-mobile-services')?.classList.remove('open');
   }
 
   if (navToggle && navMobile) {
@@ -434,6 +503,15 @@ document.addEventListener('DOMContentLoaded', () => {
     if (navOverlay) navOverlay.addEventListener('click', closeMobileNav);
     navMobile.querySelectorAll('a').forEach(link => link.addEventListener('click', closeMobileNav));
     document.addEventListener('keydown', e => { if (e.key === 'Escape') closeMobileNav(); });
+  }
+
+  // ── Mobile Nav Services sub-menu ────────────────────────────────────────
+  const mobileServicesToggle = document.querySelector('.nav-mobile-services-toggle');
+  const mobileServicesItem   = document.querySelector('.nav-mobile-services');
+  if (mobileServicesToggle && mobileServicesItem) {
+    mobileServicesToggle.addEventListener('click', () => {
+      mobileServicesItem.classList.toggle('open');
+    });
   }
 
   // ── Storstädning: fönsterputs toggle ────────────────────────────────────
@@ -454,6 +532,15 @@ document.addEventListener('DOMContentLoaded', () => {
   if (addonFonsterEnstaka) {
     addonFonsterEnstaka.addEventListener('change', () => {
       if (windowFieldsEnstaka) windowFieldsEnstaka.style.display = addonFonsterEnstaka.checked ? 'block' : 'none';
+    });
+  }
+
+  // ── Flyttstädning: förråd/garage vattenlås toggle ───────────────────────
+  const addonForradFlytt  = document.getElementById('addonForrad-flytt');
+  const forradFieldsFlytt = document.getElementById('forradFields-flytt');
+  if (addonForradFlytt) {
+    addonForradFlytt.addEventListener('change', () => {
+      if (forradFieldsFlytt) forradFieldsFlytt.style.display = addonForradFlytt.checked ? 'block' : 'none';
     });
   }
 
