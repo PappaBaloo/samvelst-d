@@ -872,14 +872,12 @@
 
   @media (max-width: 1024px) {
     .offer-bubble { display: none; }
-  }
-
-  @media (max-width: 640px) {
-    /* ── NAV ── */
     nav { padding: 0 20px; }
     .nav-links, .nav-right { display: none; }
     .nav-toggle { display: flex; }
+  }
 
+  @media (max-width: 640px) {
     /* ── HERO ── */
     .hero-content { padding: 0 24px; max-width: 100%; }
     .hero-headline { font-size: clamp(2rem, 8vw, 2.6rem); }
