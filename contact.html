@@ -3,9 +3,22 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Kontakt – GSG Group AB</title>
+<title>Kontakta oss – GSG Group AB | Städfirma Stockholm</title>
+<meta name="description" content="Kontakta GSG Group AB för frågor, offert eller bokning. Ring 070 88 444 89 eller skicka ett meddelande. Städfirma i Stockholm, Uppsala och Nyköping.">
+<link rel="canonical" href="https://www.gsggroup.se/contact.html">
+<link rel="alternate" hreflang="sv" href="https://www.gsggroup.se/contact.html">
+<link rel="alternate" hreflang="sv-SE" href="https://www.gsggroup.se/contact.html">
+<link rel="alternate" hreflang="x-default" href="https://www.gsggroup.se/">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="sv_SE">
+<meta property="og:site_name" content="GSG Group AB">
+<meta property="og:title" content="Kontakta oss – GSG Group AB | Städfirma Stockholm">
+<meta property="og:description" content="Kontakta GSG Group AB för frågor, offert eller bokning. Ring 070 88 444 89 eller skicka ett meddelande via formuläret.">
+<meta property="og:url" content="https://www.gsggroup.se/contact.html">
+<meta property="og:image" content="https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?w=1200&q=80">
 <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="css/styles.css">
+<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
 <script src="js/main.js" defer></script>
 </head>
 <body>
@@ -104,13 +117,13 @@
         <h3>Öppettider</h3>
         <p>Vardagar 07.30 - 16.15</p>
       </aside>
-      <form class="contact-form">
+      <form id="form-contact" class="contact-form form">
         <div class="contact-form-grid">
-          <input type="text" placeholder="Namn *">
-          <input type="email" placeholder="E-post *">
-          <input type="text" placeholder="Ämne">
-          <input type="tel" placeholder="Telefon">
-          <textarea placeholder="Meddelande *"></textarea>
+          <input type="text" name="namn" placeholder="Namn *">
+          <input type="email" name="email" placeholder="E-post *">
+          <input type="text" name="amne" placeholder="Ämne">
+          <input type="tel" name="telefon" placeholder="Telefon">
+          <textarea name="meddelande" placeholder="Meddelande *"></textarea>
         </div>
         <button type="submit">Skicka meddelande</button>
       </form>

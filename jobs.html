@@ -3,9 +3,22 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Jobba hos oss – GSG Group AB</title>
+<title>Jobba hos oss – GSG Group AB | Lediga städtjänster i Stockholm</title>
+<meta name="description" content="Söker du jobb som städare i Stockholm, Uppsala eller Nyköping? GSG Group AB erbjuder fast anställning, bra villkor och en familjär arbetsmiljö. Ansök idag!">
+<link rel="canonical" href="https://www.gsggroup.se/jobs.html">
+<link rel="alternate" hreflang="sv" href="https://www.gsggroup.se/jobs.html">
+<link rel="alternate" hreflang="sv-SE" href="https://www.gsggroup.se/jobs.html">
+<link rel="alternate" hreflang="x-default" href="https://www.gsggroup.se/">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="sv_SE">
+<meta property="og:site_name" content="GSG Group AB">
+<meta property="og:title" content="Jobba hos oss – GSG Group AB | Lediga städtjänster i Stockholm">
+<meta property="og:description" content="Söker du jobb som städare i Stockholm, Uppsala eller Nyköping? GSG Group AB erbjuder fast anställning, bra villkor och en familjär arbetsmiljö.">
+<meta property="og:url" content="https://www.gsggroup.se/jobs.html">
+<meta property="og:image" content="https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?w=1200&q=80">
 <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="css/styles.css">
+<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
 <script src="js/main.js" defer></script>
 </head>
 <body>
@@ -103,13 +116,13 @@
         <h3>Ansökan</h3>
         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non risus. Suspendisse lectus tortor, dignissim sit amet, adipiscing nec, ultricies sed, dolor. Cras elementum ultrices diam. Maecenas ligula massa, varius a, semper congue, euismod non, mi.</p>
       </aside>
-      <form class="contact-form">
+      <form id="form-job" class="contact-form form">
         <div class="contact-form-grid">
-          <input type="text" placeholder="Namn *">
-          <input type="email" placeholder="E-post *">
-          <input type="tel" placeholder="Telefon">
-          <select><option>Välj tjänst/område</option><option>Hemstädning</option><option>Företagsstädning</option><option>Administration</option></select>
-          <textarea placeholder="Berätta kort om dig själv *"></textarea>
+          <input type="text" name="namn" placeholder="Namn *">
+          <input type="email" name="email" placeholder="E-post *">
+          <input type="tel" name="telefon" placeholder="Telefon">
+          <select name="roll"><option value="">Välj tjänst/område</option><option value="Hemstädning">Hemstädning</option><option value="Företagsstädning">Företagsstädning</option><option value="Administration">Administration</option></select>
+          <textarea name="meddelande" placeholder="Berätta kort om dig själv *"></textarea>
         </div>
         <button type="submit">Skicka ansökan</button>
       </form>

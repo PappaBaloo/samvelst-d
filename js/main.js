@@ -21,6 +21,20 @@ if (typeof emailjs !== 'undefined') emailjs.init(EMAILJS_PUBLIC_KEY);
 
 
 /* ==========================================================================
+   Promotional Popup
+   ========================================================================== */
+
+// ── TOGGLE ─────────────────────────────────────────────────────────────────
+// Set to false to disable the popup sitewide without removing any other code.
+const PROMO_POPUP_ENABLED = true;
+
+// ── CONTENT ────────────────────────────────────────────────────────────────
+// Edit the headline and body text below. HTML is not supported — plain text only.
+const PROMO_HEADLINE = 'Provstädning — 250 kr/h';
+const PROMO_BODY     = 'Boka en provstädning idag och upplev skillnaden! Erbjudandet gäller nya kunder. Kontakta oss för mer information.';
+
+
+/* ==========================================================================
    Email helpers
    ========================================================================== */
 
@@ -335,6 +349,66 @@ ${tel}`,
   };
 }
 
+function buildContactEmail(form) {
+  const namn = _fd(form, 'namn');
+  const tel  = _fd(form, 'telefon') || '—';
+  const amne = _fd(form, 'amne')    || '—';
+  const msg  = _fd(form, 'meddelande') || '—';
+
+  return {
+    subject: `Kontaktformulär — ${amne}`,
+    replyTo: _fd(form, 'email'),
+    body:
+`Hej ${COMPANY_NAME},
+
+Du har fått ett meddelande via kontaktformuläret på er webbplats.
+
+── KONTAKTUPPGIFTER ──────────────────────────
+Namn:               ${namn}
+Telefon:            ${tel}
+
+── ÄMNE ──────────────────────────────────────
+${amne}
+
+── MEDDELANDE ────────────────────────────────
+${msg}
+
+${_SEP}
+Med vänliga hälsningar,
+${namn}
+${tel}`,
+  };
+}
+
+function buildJobEmail(form) {
+  const namn = _fd(form, 'namn');
+  const tel  = _fd(form, 'telefon') || '—';
+  const roll = _fd(form, 'roll')    || '—';
+  const msg  = _fd(form, 'meddelande') || '—';
+
+  return {
+    subject: `Jobbansökan — ${roll}`,
+    replyTo: _fd(form, 'email'),
+    body:
+`Hej ${COMPANY_NAME},
+
+Du har fått en jobbansökan via webbplatsen.
+
+── SÖKANDE ───────────────────────────────────
+Namn:               ${namn}
+Telefon:            ${tel}
+Önskat område:      ${roll}
+
+── OM SÖKANDEN ───────────────────────────────
+${msg}
+
+${_SEP}
+Med vänliga hälsningar,
+${namn}
+${tel}`,
+  };
+}
+
 const EMAIL_BUILDERS = {
   'form-hemstadning':       buildHemstadningEmail,
   'form-storstadning':      buildStorstadningEmail,
@@ -342,6 +416,8 @@ const EMAIL_BUILDERS = {
   'form-enstaka':           buildEnastakaEmail,
   'form-foretagsstadning':  buildForetagsstadningEmail,
   'form-dodsbostadning':    buildDodsbostadningEmail,
+  'form-contact':           buildContactEmail,
+  'form-job':               buildJobEmail,
 };
 
 
@@ -475,6 +551,23 @@ document.addEventListener('DOMContentLoaded', () => {
     if (postnummerInput && params.get('postnummer')) postnummerInput.value = params.get('postnummer');
 
     activateTab(params.get('tjanst') || 'hemstadning');
+  }
+
+  // ── Promotional popup ───────────────────────────────────────────────────
+  const promoOverlay = document.getElementById('promoOverlay');
+  if (promoOverlay && PROMO_POPUP_ENABLED && !sessionStorage.getItem('promoDismissed')) {
+    promoOverlay.querySelector('.promo-headline').textContent = PROMO_HEADLINE;
+    promoOverlay.querySelector('.promo-body').textContent     = PROMO_BODY;
+
+    setTimeout(() => promoOverlay.classList.add('promo-overlay--visible'), 600);
+
+    function closePromo() {
+      promoOverlay.classList.remove('promo-overlay--visible');
+      sessionStorage.setItem('promoDismissed', '1');
+    }
+
+    document.getElementById('promoClose').addEventListener('click', closePromo);
+    document.addEventListener('keydown', e => { if (e.key === 'Escape') closePromo(); });
   }
 
   // ── Mobile Nav Toggle ────────────────────────────────────────────────────
@@ -614,6 +707,7 @@ document.addEventListener('DOMContentLoaded', () => {
       }
 
       const submitBtn = form.querySelector('button[type="submit"]');
+      const originalBtnText = submitBtn ? submitBtn.textContent : '';
       if (submitBtn) { submitBtn.disabled = true; submitBtn.textContent = 'Skickar…'; }
 
       const builder = EMAIL_BUILDERS[form.id];
@@ -643,7 +737,7 @@ document.addEventListener('DOMContentLoaded', () => {
         showFormMessage(form, msg, 'error');
         console.error('EmailJS error:', err);
       } finally {
-        if (submitBtn) { submitBtn.disabled = false; submitBtn.textContent = 'Skicka städförfrågan'; }
+        if (submitBtn) { submitBtn.disabled = false; submitBtn.textContent = originalBtnText; }
       }
     });
   });

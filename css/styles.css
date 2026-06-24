@@ -96,7 +96,7 @@
 
   .hero-bg {
     position: absolute; inset: 0;
-    background: url('https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?w=1800&q=80') center/cover no-repeat;
+    background: url('https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?w=1400&q=75') center/cover no-repeat;
     filter: brightness(0.45);
   }
 
@@ -173,43 +173,6 @@
     font-size: 0.83rem;
   }
   .hero-company-note a { color: rgba(255,255,255,0.85); }
-
-  /* Offer bubble */
-  .offer-bubble {
-    position: absolute;
-    right: 100px; top: 50%;
-    transform: translateY(-50%);
-    z-index: 3;
-    background: var(--teal);
-    border-radius: 50%;
-    width: 210px; height: 210px;
-    display: flex; flex-direction: column;
-    align-items: center; justify-content: center;
-    text-align: center;
-    padding: 24px;
-    box-shadow: 0 12px 40px rgba(0,0,0,0.3);
-    animation: fadeUp 1.1s .3s ease both;
-    cursor: pointer;
-    text-decoration: none;
-    transition: transform .3s;
-  }
-  .offer-bubble:hover { transform: translateY(calc(-50% - 4px)) scale(1.03); }
-  .offer-bubble .label {
-    color: rgba(255,255,255,0.75);
-    font-size: 0.8rem;
-    font-weight: 500;
-    margin-bottom: 4px;
-  }
-  .offer-bubble .price-line {
-    color: var(--white);
-    font-size: 0.9rem;
-    line-height: 1.4;
-    margin-bottom: 8px;
-  }
-  .offer-bubble .price-line strong { font-size: 1.15rem; }
-  .offer-bubble .stars { color: var(--gold); font-size: 1rem; letter-spacing: 2px; }
-  .offer-bubble .rating { color: var(--white); font-size: 0.78rem; margin-top: 2px; }
-  .offer-bubble .reviews { color: rgba(255,255,255,0.65); font-size: 0.72rem; margin-top: 2px; }
 
   /* ── TRUST STRIP ── */
   .trust-strip {
@@ -886,7 +849,6 @@
   }
 
   @media (max-width: 1024px) {
-    .offer-bubble { display: none; }
     nav { padding: 0 20px; }
     .nav-links, .nav-right { display: none; }
     .nav-toggle { display: flex; }
@@ -907,7 +869,6 @@
     .hero-form input { padding: 14px 18px; border-bottom: 1px solid var(--border); }
     .hero-form .divider { display: none; }
     .hero-form button { border-radius: 0; padding: 16px; }
-    .offer-bubble { display: none; }
 
     /* ── INTRO ── */
     .intro {
@@ -966,4 +927,64 @@
     /* ── FOOTER ── */
     footer { padding: 48px 24px 32px; }
     .footer-grid { grid-template-columns: 1fr 1fr; gap: 32px; }
+  }
+
+  /* ── PROMOTIONAL POPUP ── */
+  .promo-overlay {
+    position: fixed; bottom: 32px; right: 32px; z-index: 900;
+    width: 300px;
+    opacity: 0; pointer-events: none;
+    transform: translateY(16px);
+    transition: opacity 0.35s ease, transform 0.35s ease;
+  }
+  .promo-overlay--visible {
+    opacity: 1; pointer-events: auto;
+    transform: translateY(0);
+  }
+  .promo-modal {
+    position: relative;
+    background: var(--white);
+    border-radius: 12px;
+    padding: 28px 24px 24px;
+    box-shadow: 0 8px 32px rgba(0,0,0,0.14), 0 2px 8px rgba(0,0,0,0.08);
+    overflow: hidden;
+  }
+  .promo-accent {
+    position: absolute; top: 0; left: 0; right: 0;
+    height: 3px;
+    background: var(--teal);
+  }
+  .promo-close {
+    position: absolute; top: 12px; right: 12px;
+    background: none; border: none; cursor: pointer;
+    color: var(--muted); padding: 4px;
+    border-radius: 4px; line-height: 0;
+    transition: color 0.2s, background 0.2s;
+  }
+  .promo-close:hover { color: var(--dark); background: var(--cream); }
+  .promo-headline {
+    font-family: 'DM Serif Display', serif;
+    font-size: 1.25rem; line-height: 1.3;
+    color: var(--dark);
+    margin-bottom: 10px;
+    padding-right: 20px;
+  }
+  .promo-body {
+    font-size: 0.875rem; line-height: 1.6;
+    color: var(--muted);
+    margin-bottom: 18px;
+  }
+  .promo-cta {
+    display: block; text-align: center;
+    background: var(--teal); color: var(--white);
+    font-size: 0.875rem; font-weight: 600;
+    padding: 11px 20px;
+    border-radius: 8px;
+    text-decoration: none;
+    transition: background 0.2s;
+  }
+  .promo-cta:hover { background: var(--teal-light); }
+
+  @media (max-width: 480px) {
+    .promo-overlay { bottom: 16px; right: 16px; left: 16px; width: auto; }
   }
